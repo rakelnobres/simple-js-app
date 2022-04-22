@@ -3,25 +3,25 @@ let pokemonList = [
   {
     name: 'Ivysaur',
     height: 1,
-    type: ['grass', 'poison'],
+    type: ['grass', 'poison']
   }
 
   {
     name: 'Beedrill',
     height: 1,
-    type: ['bug', 'poison'],
+    type: ['bug', 'poison']
   }
 
   {
     name: 'Pikachu',
     height: 0.4,
-    type: 'electric',
+    type: 'electric'
   }
 
   {
     name: 'Raichu',
     height: 0.8,
-    type: 'electric',
+    type: 'electric'
   }
 
   {
