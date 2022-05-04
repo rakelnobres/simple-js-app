@@ -1,9 +1,8 @@
 // wrap pokemonList array in an IIFE
 
-// let pokemonRepository = (function() {
+let pokemonRepository = (function() {
 
-  let pokemonList = [
-    {
+  let pokemonList = [{
       name: 'Ivysaur',
       height: 1,
       type: ['grass', 'poison']
@@ -13,12 +12,6 @@
       name: 'Beedrill',
       height: 1,
       type: ['bug', 'poison']
-    },
-
-    {
-      name: 'Pikachu',
-      height: 0.4,
-      type: 'electric'
     },
 
     {
@@ -63,32 +56,31 @@
       type: 'normal'
     }
   ];
-//
-//   // define getAll function to rturn the pokemonList array
-//   function getAll() {
-//     return pokemonList;
-//   }
-//
-//   // define add function to add a pokemon to the list
-//   function add(pokemon) {
-//     pokemonList.push(pokemon);
-//   }
-//
-// document.log (pokemonRepository.getAll());
-// //
-// // forEach Loop for name and height
-// pokemonRepository.getAll().forEach(function(pokemon) {
-//   pokemonRepository.addListItem(pokemon);
-// });
-//
 
-pokemonList.forEach(function (pokemon) {
-document.write(pokemon.name + ' ' + pokemon.height);
+  // define add function to add a pokemon to the list
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  // define getAll function to return the pokemonList array
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+
+})();
+
+pokemonRepository.add({
+  name: 'Pikachu',
+  height: 3,
+  type: 'electric'
 });
-//
-// for (let i = 0; i < pokemonList.length; i++)
-//   if (pokemonList[i].height > threshhold) {
-//     document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height})` + " - Wow! That's big!" + '<br>');
-//   } else {
-//     document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height})`);
-//   }
+
+// forEach Loop
+pokemonRepository.getAll().forEach(function (pokemon) {
+  document.write(pokemonRepository.getAll);
+});
