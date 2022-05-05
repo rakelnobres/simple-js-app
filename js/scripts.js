@@ -2,7 +2,8 @@
 
 let pokemonRepository = (function() {
 
-  let pokemonList = [{
+  let pokemonList = [
+    {
       name: 'Ivysaur',
       height: 1,
       type: ['grass', 'poison']
@@ -76,11 +77,11 @@ let pokemonRepository = (function() {
 
 pokemonRepository.add({
   name: 'Pikachu',
-  height: 3,
+  height: 0.3,
   type: 'electric'
 });
 
 // forEach Loop
 pokemonRepository.getAll().forEach(function (pokemon) {
-  document.write(pokemonRepository.getAll);
+  document.write(pokemon.name + "<br/>" + "height: " + pokemon.height + "m , type: " + pokemon.type + " " + "<br/>");
 });
