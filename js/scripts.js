@@ -2,8 +2,7 @@
 
 let pokemonRepository = (function() {
 
-  let pokemonList = [
-    {
+  let pokemonList = [{
       name: 'Ivysaur',
       height: 1,
       type: ['grass', 'poison']
@@ -60,7 +59,17 @@ let pokemonRepository = (function() {
 
   // define add function to add a pokemon to the list
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "type" in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      alert("Data entered is incorrect!")
+    }
+
   }
 
   // define getAll function to return the pokemonList array
@@ -82,6 +91,6 @@ pokemonRepository.add({
 });
 
 // forEach Loop
-pokemonRepository.getAll().forEach(function (pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon) {
   document.write(pokemon.name + "<br/>" + "height: " + pokemon.height + "m , type: " + pokemon.type + " " + "<br/>");
 });
