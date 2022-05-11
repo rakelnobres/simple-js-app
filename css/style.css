@@ -1,19 +1,41 @@
 /* font families
 font-family: 'Irish Grover', cursive;
 font-family: 'PT Serif', serif; */
-
 body {
   font-family: 'PT Serif', serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 30px;
-  background-color: #f0ffff;
+  background-color: #f0efef;
   text-align: center;
 }
 
 h1 {
   font-family: 'Irish Grover', cursive;
   font-weight: 700;
-  color: #1e90ff;
+  color: #008bfa;
   text-align: center;
+}
+/* customise buttons*/
+.button-class {
+  border: none;
+  background-color: #87bdd8;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.pokemon-list {
+  list-style: none;
+}
+
+.button-class:hover,
+.button-class:focus {
+  background-color: #b7d7e8;
+  cursor: pointer;
+  font-weight: bold;
 }

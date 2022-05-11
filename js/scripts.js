@@ -2,7 +2,7 @@
 
 let pokemonRepository = (function() {
 
-  let pokemonList = [{
+  let pokemonRepo = [{
       name: 'Ivysaur',
       height: 1,
       type: ['grass', 'poison']
@@ -57,7 +57,7 @@ let pokemonRepository = (function() {
     }
   ];
 
-  // define add function to add a pokemon to the list
+  // define add function to add a pokemon to pokemonRepo array
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -65,22 +65,51 @@ let pokemonRepository = (function() {
       "height" in pokemon &&
       "type" in pokemon
     ) {
-      pokemonList.push(pokemon);
+      pokemonRepo.push(pokemon);
     } else {
       alert("Data entered is incorrect!")
     }
 
   }
 
-  // define getAll function to return the pokemonList array
+  // define getAll function to return the pokemonRepo array
   function getAll() {
-    return pokemonList;
+    return pokemonRepo;
   }
 
+// simplified loop function
+  function addListItem(pokemon) {
+    // declare variables
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listPokemon = document.createElement("li");
+    let button = document.createElement("button");
+    // set text in the button
+    button.innerText = pokemon.name;
+    // create CSS rule to customise button style
+    button.classList.add("button-class");
+    // append the list (listPokemon) to the button
+    listPokemon.appendChild(button);
+    // append li to the parent element
+    pokemonList.appendChild(listPokemon);
+    addListener(button, pokemon);
+  }
+
+// add event listener to the button
+function addListener (button, pokemon) {
+  button.addEventListener ("click", function() {
+    showDetails(pokemon.name);
+  });
+}
+
+function showDetails (pokemon) {
+  console.log(pokemon);
+}
   return {
     add: add,
-    getAll: getAll
-  };
+    getAll: getAll,
+    addListItem: addListItem,
+    showDetails: showDetails
+  }
 
 })();
 
@@ -92,5 +121,5 @@ pokemonRepository.add({
 
 // forEach Loop
 pokemonRepository.getAll().forEach(function(pokemon) {
-  document.write(pokemon.name + "<br/>" + "height: " + pokemon.height + "m , type: " + pokemon.type + " " + "<br/>");
+  pokemonRepository.addListItem(pokemon);
 });
